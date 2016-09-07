@@ -15,9 +15,6 @@
     <![endif]-->
 
     {% block css %}
-    <!-- Latest compiled and minified Bootstrap 4 Alpha 3 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
-
     <!-- Your stuff: Third-party CSS libraries go here -->
     {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% compress css %}{% endraw %}{% endif %}{% raw %}
     <!-- This file stores project-specific CSS -->
@@ -92,21 +89,14 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     {% block javascript %}
-      <!-- Required by Bootstrap v4 Alpha 3 -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
 
       <!-- Your stuff: Third-party javascript libraries go here -->
-{% endraw %}{% if cookiecutter.js_task_runner == 'Webpack' %}{% raw %}
-      <!-- Webpack bundles -->
-      {% render_bundle 'vendor' %}
-      {% render_bundle 'common' %}
-      {% render_bundle 'main' %}
-{% endraw %}{% else %}{% raw %}
+{% raw %}
       <!-- place project specific Javascript in this file -->
       {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% compress js %}{% endraw %}{% endif %}{% raw %}
-      <script src="{% static 'js/project.js' %}"></script>
+        <script src="{% static 'js/pages/common.js' %}"></script>
+        <script src="{% static 'js/pages/base.js' %}"></script>
       {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% endcompress %}{% endraw %}{% endif %}{% raw %}
 {% endraw %}{% endif %}{% raw %}
     {% endblock javascript %}
