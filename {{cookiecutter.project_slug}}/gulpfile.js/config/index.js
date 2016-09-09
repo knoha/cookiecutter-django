@@ -14,8 +14,8 @@ function checkDev() {
     return process.env.DJANGO_SETTINGS_MODULE === 'config.settings.local';
 }
 
-config.publicDirectory = './build';
-config.sourceDirectory = './source';
+config.publicDirectory = './{{ cookiecutter.project_slug }}/static';
+config.sourceDirectory = './{{ cookiecutter.project_slug }}/source';
 config.prod = checkProd();
 config.stage = checkStage();
 config.dev = checkDev();
