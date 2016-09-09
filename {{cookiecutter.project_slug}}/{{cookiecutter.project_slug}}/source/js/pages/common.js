@@ -53,13 +53,13 @@ String.prototype.format = function () {
 };
 
 
-var TR = {
+var {{ cookiecutter.js_namespace }} = {
     ns: function ns(namespace) {
         // generate namespaces to help us organize our code in the global scope
         var nsparts = namespace.split('.');
-        var parent = TR;
+        var parent = {{ cookiecutter.js_namespace }};
 
-        if (nsparts[0] === 'TR') {
+        if (nsparts[0] === '{{ cookiecutter.js_namespace }}') {
             nsparts = nsparts.slice(1);
         }
 
@@ -111,7 +111,7 @@ var TR = {
     },
     subscribe: function subscribe() {
         /*
-         *   Subscripe to events for non-ES6 modules
+         *   Subscribe to events for non-ES6 modules
          */
         var event;
         var eventPrefix = '_on_';
@@ -158,7 +158,7 @@ var AJAX_TIMEOUT = undefined;
 $.ajaxSetup({
     // set csrf token globally so we never have to worry about it
     headers: {
-        'X-CSRFToken': TR.getCookie('csrftoken')
+        'X-CSRFToken': {{ cookiecutter.js_namespace }}.getCookie('csrftoken')
     },
     // do not cache requests
     cache: false,

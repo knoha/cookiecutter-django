@@ -8,23 +8,9 @@ var fonts = require('../config/fonts');
 var js = require('../config/javascript');
 
 gulp.task('watch', function() {
-    watch(sass.src, function() {
-        gulp.start('sass');
-    });
-
-    watch(images.src, function() {
-        gulp.start('images');
-    });
-
-    watch(fonts.src, function() {
-        gulp.start('fonts');
-    });
-
-    watch(js.vendorSrc, function() {
-        gulp.start('js:vendor');
-    });
-    
-    watch(js.src, function() {
-        gulp.start('javascript');
-    })
+    gulp.watch(sass.src, ['sass']);
+    gulp.watch(images.src, ['images']);
+    gulp.watch(fonts.src, ['fonts']);
+    gulp.watch(js.vendorSrc, ['js:vendor']);
+    gulp.watch(js.src, ['javascript']);
 });
