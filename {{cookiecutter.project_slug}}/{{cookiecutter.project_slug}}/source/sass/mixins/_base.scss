@@ -83,6 +83,42 @@ a {
     }
 }
 
+
+// bootstrap alert CSS, translated to the django-standard levels of
+// debug, info, success, warning, error
+//
+// Django messages
+// --------------------------------------------------
+.alert-debug {
+    background-color: $white;
+    border-color: $mint-green;
+    color: $black;
+}
+
+.alert-info {
+    background-color: $white;
+    border-color: $mint-green;
+    color: $black;
+}
+
+.alert-success {
+    background-color: $mint-green;
+    border-color: $mint-green;
+    color: $black;
+}
+
+.alert-warning {
+    background-color: $white;
+    border-color: $dark-pink;
+    color: $red;
+}
+
+.alert-error {
+    background-color: $pink;
+    border-color: $dark-pink;
+    color: $red;
+}
+
 /*
 *   Body font size changes below will cascade to all em units to effectively scale our pages
 *   in a nice, responsive way (everything should be ems unless it is a purposely fixed element
