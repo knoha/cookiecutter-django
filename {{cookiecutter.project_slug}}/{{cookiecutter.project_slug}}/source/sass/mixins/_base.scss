@@ -58,7 +58,7 @@ a {
     }
 }
 
-.container {
+#container {
     padding: $base-padding;
 }
 
@@ -71,15 +71,15 @@ a {
     color: $black;
     position: fixed;
     font-size: 90px;
-    top: calc(50% - $nav-height);
+    top: calc(50% - #{$nav-height});
     left: calc(50%);
     text-align: center;
     z-index: $zindex-spinner;
 
     .fa {
         position: absolute;
-        top: calc(50% - $nav-height);
-        left: calc(50% - $nav-height);
+        top: calc(50% - #{$nav-height});
+        left: calc(50% - #{$nav-height});
     }
 }
 
