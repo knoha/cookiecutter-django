@@ -18,7 +18,7 @@
     <!-- Your stuff: Third-party CSS libraries go here -->
     {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% compress css %}{% endraw %}{% endif %}{% raw %}
     <!-- This file stores project-specific CSS -->
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    <link href="{% static 'css/pages/base.css' %}" rel="stylesheet">
     {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% endcompress %}{% endraw %}{% endif %}{% raw %}
     {% endblock %}
 
@@ -53,7 +53,12 @@
     </div>
 </nav>
 
-<div class="container">
+<div id="container">
+    {% if messages %}
+          {% for message in messages %}
+              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}"><p>{{ message }}</p></div>
+          {% endfor %}
+      {% endif %}
     {% block content %}{% endblock content %}
 </div> <!-- /container -->
 
@@ -65,13 +70,15 @@
 
 <!-- JS Placed at the end of the document so the pages load faster -->
 {% block javascript %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
-
     {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% compress js %}{% endraw %}{% endif %}{% raw %}
+    <script src="{% static '/vendor/jquery.min.js' %}"></script>
+    <script src="{% static '/vendor/jquery.validate.min.js' %}"></script>
+    <script src="{% static '/vendor/lodash.min.js' %}"></script>
+    <script src="{% static '/vendor/class.js' %}"></script>
     <script src="{% static 'js/pages/common.js' %}"></script>
     <script src="{% static 'js/pages/base.js' %}"></script>
     <script type="text/javascript">
-        {{ cookiecutter.js_namespace }}.Base.init();
+        {% endraw %}{{ cookiecutter.js_namespace }}{% raw %}.Base.init();
     </script>
     {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% endcompress %}{% endraw %}{% endif %}{% raw %}
     {% endraw %}

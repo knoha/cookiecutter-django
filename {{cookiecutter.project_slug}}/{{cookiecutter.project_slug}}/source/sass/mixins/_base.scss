@@ -58,7 +58,7 @@ a {
     }
 }
 
-.container {
+#container {
     padding: $base-padding;
 }
 
@@ -71,16 +71,52 @@ a {
     color: $black;
     position: fixed;
     font-size: 90px;
-    top: calc(50% - $nav-height);
+    top: calc(50% - #{$nav-height});
     left: calc(50%);
     text-align: center;
     z-index: $zindex-spinner;
 
     .fa {
         position: absolute;
-        top: calc(50% - $nav-height);
-        left: calc(50% - $nav-height);
+        top: calc(50% - #{$nav-height});
+        left: calc(50% - #{$nav-height});
     }
+}
+
+
+// bootstrap alert CSS, translated to the django-standard levels of
+// debug, info, success, warning, error
+//
+// Django messages
+// --------------------------------------------------
+.alert-debug {
+    background-color: $white;
+    border-color: $mint-green;
+    color: $black;
+}
+
+.alert-info {
+    background-color: $white;
+    border-color: $mint-green;
+    color: $black;
+}
+
+.alert-success {
+    background-color: $mint-green;
+    border-color: $mint-green;
+    color: $black;
+}
+
+.alert-warning {
+    background-color: $white;
+    border-color: $dark-pink;
+    color: $red;
+}
+
+.alert-error {
+    background-color: $pink;
+    border-color: $dark-pink;
+    color: $red;
 }
 
 /*
